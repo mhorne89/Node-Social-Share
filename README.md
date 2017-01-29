@@ -1,4 +1,4 @@
-# Node.js Social Share
+# Socialis - Node.js Social Share
 
 I use this microservice to maintain my social media.
 

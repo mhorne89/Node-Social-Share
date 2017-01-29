@@ -2,6 +2,9 @@
 var Twitter = require('twitter');
 
 
+// Modules
+var mailError = require('./emailAlerts');
+
 // Config
 require('dotenv').config();
 
@@ -15,7 +18,12 @@ exports.post = function(body) {
   });
 
   client.post('statuses/update', { status: body.title + ': ' + body.link },  function(error, tweet, response) {
-    if(error) { console.log(error); }
+    if(error) {
+      console.log(error);
+      mailError('Error posting to Twitter', error);
+      return;
+    }
+    
     console.log('Twitter: ', response.statusMessage);
   });
 };
