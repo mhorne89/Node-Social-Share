@@ -1,7 +1,9 @@
 // Node modules
+var express = require('express');
 var cron = require('node-cron');
 var feed = require("feed-read");
 
+var app = express();
 
 // Modules
 var feeds = require("./modules/feeds");
@@ -40,3 +42,5 @@ function getRandomNumber(max) {
   var rand = Math.random() * (feeds.length - 0);
   return Math.floor(rand);
 }
+
+app.listen(process.env.PORT || 5000);
