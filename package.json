@@ -1,5 +1,5 @@
 {
-  "name": "Node Social Bot",
+  "name": "Node Social Share",
   "version": "1.0.0",
   "dependencies": {
     "dotenv": "^4.0.0",
