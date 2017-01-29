@@ -10,7 +10,7 @@ var postToTwitter = require("./modules/postToTwitter");
 
 
 // Cron job
-cron.schedule('0 */2 * * *', function(){
+cron.schedule('* * * * *', function(){
   readFeed();
 });
 
