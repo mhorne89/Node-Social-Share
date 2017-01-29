@@ -1,0 +1,17 @@
+{
+  "name": "Node Social Bot",
+  "version": "1.0.0",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "fb": "^1.1.1",
+    "feed-read": "0.0.1",
+    "node-cron": "^1.1.2",
+    "twitter": "^1.7.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
