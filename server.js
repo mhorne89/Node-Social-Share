@@ -7,6 +7,7 @@ var app = express();
 
 // Modules
 var feeds = require("./modules/feeds");
+var keywords = require("./modules/keywords");
 var postToFacebook = require("./modules/postToFacebook");
 var postToTwitter = require("./modules/postToTwitter");
 
@@ -31,6 +32,9 @@ function readFeed() {
       'link': articles[randArticle].link
     }
     
+    // Add hastags to title
+    body.title = addHashes(body.title);
+    
     console.log(body);
     
     postToFacebook.post(body);
@@ -38,9 +42,27 @@ function readFeed() {
   });
 };
 
+
+// Function to generate random number
 function getRandomNumber(max) {
   var rand = Math.random() * (feeds.length - 0);
   return Math.floor(rand);
 }
 
+
+// Function to add hashtags to list of keywords
+function addHashes(title) {
+  var wordArray = title.split(' ');
+  
+  for (i = 0; i < wordArray.length; ++i) {
+    if (keywords.indexOf(wordArray[i].toLowerCase()) > -1) {
+      wordArray[i] = '#' + wordArray[i];
+    }
+  }
+  
+  return wordArray.join(" ");
+}
+
+
 app.listen(process.env.PORT || 5000);
+
