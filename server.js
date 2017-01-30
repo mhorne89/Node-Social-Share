@@ -64,5 +64,8 @@ function addHashes(title) {
 }
 
 
+// Give response to incoming requests
+app.get('/*', function(req,res){ res.status(200).send('Welcome to Socialis') });
+
 app.listen(process.env.PORT || 5000);
 
