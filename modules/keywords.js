@@ -86,5 +86,11 @@ module.exports = [
   'api', 
   'json', 
   'csv', 
-  'svg'
+  'svg',
+  'progressive web apps',
+  'vue.js',
+  'vuejs',
+  'website',
+  'yarn',
+  'npm'
 ];
