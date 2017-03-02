@@ -12,10 +12,11 @@ var postToFacebook = require("./modules/postToFacebook");
 var postToTwitter = require("./modules/postToTwitter");
 
 
-// Cron job
-cron.schedule('0 */2 * * *', function(){
-  readFeed();
-});
+// Cron job to read news feeds
+cron.schedule('0 */2 * * *', function(){ readFeed(); });
+
+// Cron job to keep app alive
+cron.schedule('* * * * *', function(){ app.get('/', function(req,res){ return; }); });
 
 
 // Function to read feed
@@ -34,9 +35,7 @@ function readFeed() {
     
     // Add hastags to title
     body.title = addHashes(body.title);
-    
-    console.log(body);
-    
+        
     postToFacebook.post(body);
     postToTwitter.post(body);
   });
