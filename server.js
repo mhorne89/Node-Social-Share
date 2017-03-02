@@ -31,7 +31,7 @@ function readFeed() {
     var body = {
       'title': articles[randArticle].title,
       'link': articles[randArticle].link
-    }
+    };
     
     // Add hastags to title
     body.title = addHashes(body.title);
